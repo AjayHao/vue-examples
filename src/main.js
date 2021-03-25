@@ -13,15 +13,17 @@ import _ from 'lodash';
 import FirstComponent from './component/firstcomponent.vue';
 import SecondComponent from './component/secondcomponent.vue';
 
-Vue.use(Element);
 Vue.prototype.axios = axios;
 Vue.prototype._ = _;
+
+Vue.use(Element);
 
 //开启debug模式
 Vue.config.debug = true;
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+
 
 
 // 创建一个路由器实例

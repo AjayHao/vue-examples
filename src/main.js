@@ -1,25 +1,27 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
 import VueRouter from "vue-router";
-import VueResource from 'vue-resource'
-import Element from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
+import VueResource from 'vue-resource';
+import Element from 'element-ui';
+import 'element-ui/lib/theme-default/index.css';
+import axios from 'axios';
+import _ from 'lodash';
+// 定义组件, 也可以像教程之前教的方法从别的文件引入
+/*const FirstComponent = {
+  template: '<div><h2>我是第 1 个子页面</h2></div>'
+}*/
+import FirstComponent from './component/firstcomponent.vue';
+import SecondComponent from './component/secondcomponent.vue';
 
-Vue.use(Element)
+Vue.use(Element);
+Vue.prototype.axios = axios;
+Vue.prototype._ = _;
 
 //开启debug模式
 Vue.config.debug = true;
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
-
-
-// 定义组件, 也可以像教程之前教的方法从别的文件引入
-const FirstComponent = {
-  template: '<div><h2>我是第 1 个子页面</h2></div>'
-}
-import secondcomponent from './component/secondcomponent.vue'
-
 
 
 // 创建一个路由器实例
@@ -34,7 +36,7 @@ const router = new VueRouter({
     },
     {
       path: '/second',
-      component: secondcomponent
+      component: SecondComponent
     }
   ]
 })
